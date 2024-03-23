@@ -57,7 +57,7 @@ def train_test_predicted_plot(df_train, df_test, x_feature, y_feature, predicted
         fig.update_yaxes(title_text=y_feature)
 
         # Update title and height
-        title = f'Forecasting using {model_name}\ninput window size :{df_train.shape[0]}\n Horizan : {df_test.shape[0]}'
+        title = f'Forecasting using {model_name}\ninput window size :{df_train.shape[0]}\n Horizon : {df_test.shape[0]}'
 
         fig.update_layout(
             title=title,
@@ -68,8 +68,9 @@ def train_test_predicted_plot(df_train, df_test, x_feature, y_feature, predicted
 
         # Save the plot as an HTML file
         # fig.show()
-        parent_path = os.path.join('Plots','RNNLSTMModel','Results')
-        # fig.write_html(f'{parent_path}/forecasting_using_{model_name}_combination_{filename}'+'.html')
+        parent_path = os.path.join('..','Plots','RNNLSTMModel','Results')
+        os.makedirs(parent_path,exist_ok=True)
+        fig.write_html(f'{parent_path}/forecasting_using_{model_name}_combination_{filename}'+'.html')
         fig.write_image(f'{parent_path}/forecasting_using_{model_name}_combination_of_{filename}' + '.png')
     except Exception as e:
         print("Error ", e)
@@ -89,8 +90,8 @@ def plot_visualization(predictions=None,
         # Convert prediction into a pandas dataframe and reset index
         forecast = predictions.pd_dataframe().reset_index()
 
-        x_feature = 'date'
-        y_feature = 'order_id'
+        x_feature = 'daily'
+        y_feature = 'daily_accident'
         filename = filename
         
         try:
