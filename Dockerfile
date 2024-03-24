@@ -12,14 +12,14 @@ RUN pip install --upgrade pip && \
 
 RUN #useradd -ms /bin/bash iffi
 # Set the user to use when running the container
-#USER iffi
 RUN #chown -R iffi:iffi /app
 
 
 RUN pip install -U kaleido
 
 # Check if directory exists before creating it
-RUN mkdir -p /app
+RUN #mkdir -p /app
+#USER iffi
 
 EXPOSE 8000
 
