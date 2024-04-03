@@ -28,7 +28,8 @@ def plot_auto_correlation_plot(ts, m=None, max_lag=None,saving_path=None):
     plt.ylabel('correlation')
     plt.title('Auto Correlation Plot')
     plt.savefig(f'{creating_folder_path}/auto_correlation_plot.png')
-    plt.close()
+    # plt.close()
+    plt.show()
 
 def plot_partial_auto_correlation_plot(ts, m=None, max_lag=None,saving_path=None):
     '''
@@ -53,7 +54,8 @@ def plot_partial_auto_correlation_plot(ts, m=None, max_lag=None,saving_path=None
     # plt.sh ow()
     # plt.savefig(saving_path)
     plt.savefig(f'{creating_folder_path}/partial_auto_correlation_plot.png')
-    plt.close()
+    plt.show()
+    # plt.close()
     
 
 
@@ -128,6 +130,7 @@ def train_test_predicted_plot(df_train, df_test, x_feature, y_feature, predicted
         # print('parent path : ',parent_path)
         # fig.write_html(f'{parent_path}/forecasting_using_{model_name}_combination_{filename}'+'.html')
         fig.write_image(f'{parent_path}/forecasting_using_{model_name}_combination_{filename}' + '.png')
+        fig.show()
     except Exception as e:
         print("Error ", e)
 

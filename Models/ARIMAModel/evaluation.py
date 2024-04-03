@@ -20,7 +20,7 @@ def evaluation_of_model_sarima_Model(
         evaluation_dict_list = []
 
          # Loop over different window sizes
-        input_window = [30, 30 * 2, 30 * 3, 30 * 4, 30 * 5]
+        input_window = [30*2, 30 * 4, 30 * 6, 30 * 8, 30 * 10]
         for window_size in input_window:
             
             # Extract a subset of the test data based on the window size and current position
