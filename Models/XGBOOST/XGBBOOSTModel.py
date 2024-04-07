@@ -1,9 +1,16 @@
 from darts.models.forecasting.xgboost import  XGBModel
-def xgboost_model(series):
+def xgboost_model(series=None,
+                  lags=None,
+                  output_chunk_length=None,
+                  multi_models=None,
+                  use_static_covariates=None,
+                  likelihood =  None,
+                  quantiles = None):
+
     try:
         
-        xgb_model= XGBModel(lags=30, 
-                        output_chunk_length=24, 
+        xgb_model= XGBModel(lags=lags,
+                        output_chunk_length=output_chunk_length,
                         # add_encoders={
                         #     # 'cycli0c': {'future': ['month']},
                         #     'datetime_attribute': {'future': ['hour', 'dayofweek']},
@@ -11,11 +18,14 @@ def xgboost_model(series):
                         #     # 'custom': {'future': [lambda idx: (idx.year - 2013) / 50]},
                         #     'transformer': Scaler()
                         # }, 
-                        # likelihood='poisson', 
-                        # quantiles=[0.2, 0.5, 0.75, 0.9], 
+                        likelihood=likelihood,
+                        quantiles=quantiles,
                         random_state=199, 
-                        multi_models=True, 
-                        use_static_covariates=True)
+                        multi_models=multi_models,
+                        use_static_covariates=use_static_covariates
+                           
+                           
+                           )
 
         xgb_model.fit(series)
         return xgb_model

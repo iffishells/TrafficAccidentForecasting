@@ -10,15 +10,16 @@ RUN pip install --upgrade pip && \
     pip install jupyterlab && \
     pip install darts
 
-RUN #useradd -ms /bin/bash iffi
+#RUN useradd -ms /bin/bash iffi
 # Set the user to use when running the container
-RUN #chown -R iffi:iffi /app
+#RUN chown -R iffi:iffi /app
 
 
 RUN pip install -U kaleido
+RUN #pip install tensorflow[and-cuda]
 
 # Check if directory exists before creating it
-RUN #mkdir -p /app
+RUN mkdir -p /app
 #USER iffi
 
 EXPOSE 8000

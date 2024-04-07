@@ -93,5 +93,6 @@ def train_test_predicted_plot(df_train, df_test, x_feature, y_feature, predicted
         # print('parent path : ',parent_path)
         # fig.write_html(f'{parent_path}/forecasting_using_{model_name}_combination_{filename}'+'.html')
         fig.write_image(f'{parent_path}/forecasting_using_{model_name}_combination_{filename}' + '.png')
+        fig.show()
     except Exception as e:
         print("Error ", e)
