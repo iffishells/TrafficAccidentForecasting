@@ -50,10 +50,10 @@ def RNNLSTMModel(train_ts_transformed = None,
         pl_trainer_kwargs = {"accelerator": "cpu",
                             #  "auto_select_gpus": True,
                             "callbacks": [my_stopper]
-                            },
-        {"accelerator": "gpu",
-         "devices": -1,
-         "auto_select_gpus": True}  # to use all available GPUS.
+                            }
+        # {"accelerator": "gpu",
+        #  "devices": -1,
+        #  "auto_select_gpus": True}  # to use all available GPUS.
 
         )
 #        {"accelerator": "cpu"} for CPU,
