@@ -1,5 +1,5 @@
 from darts.models import RNNModel
-from pytorch_lightning.callbacks.early_stopping import EarlyStopping
+# from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 
 
 def RNNLSTMModel(train_ts_transformed = None,
@@ -24,12 +24,12 @@ def RNNLSTMModel(train_ts_transformed = None,
     try:
         # stop training when validation loss does not decrease more than 0.05 (`min_delta`) over
         # a period of 5 epochs (`patience`)
-        my_stopper = EarlyStopping(
-            monitor="val_loss",
-            patience=30,
-            min_delta=0.0001,
-            mode='min',
-        )
+        # my_stopper = EarlyStopping(
+        #     monitor="val_loss",
+        #     patience=30,
+        #     min_delta=0.0001,
+        #     mode='min',
+        # )
 
 
         my_model = RNNModel(
@@ -47,9 +47,9 @@ def RNNLSTMModel(train_ts_transformed = None,
         input_chunk_length=input_chunk_length,
         force_reset=force_reset,
         save_checkpoints=True,
-        pl_trainer_kwargs = {"accelerator": "cpu",
+        pl_trainer_kwargs = {"accelerator": "cpu"
                             #  "auto_select_gpus": True,
-                            "callbacks": [my_stopper]
+                            # "callbacks": [my_stopper]
                             }
         # {"accelerator": "gpu",
         #  "devices": -1,

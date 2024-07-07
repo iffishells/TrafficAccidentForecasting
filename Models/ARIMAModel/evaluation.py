@@ -1,10 +1,12 @@
-from darts.models import RegressionModel
+# from darts.models import RegressionModel
+from darts.models.forecasting.arima import ARIMA
+
 from Models.ARIMAModel.plot import plot_visualization
 import gc
 import pandas as pd
 import numpy as np
 def load_model_sarima_model(model_name=None):
-    model = RegressionModel.load(model_name)
+    model = ARIMA.load(model_name)
     return model
 
 def evaluation_of_model_sarima_Model(
