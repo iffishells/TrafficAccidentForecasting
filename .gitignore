@@ -18,6 +18,7 @@ env.bak/
 venv.bak/
 
 .idea/
-
+*.html
+*.png
 
 research_papers
